@@ -11,7 +11,7 @@ const CONFIG = {
   // (1) Google Apps Script Web App URL.
   //     Deploy Code.gs as a Web App (Execute as = Me, Access = Anyone),
   //     then paste the /exec URL here.
-  APPS_SCRIPT_URL: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzkPAd3oVexfQkKz5FKUnPmzD4FmDhMZGesTBqHSFZp_u74xmkHDXI20JqNRPP1IHXvkA/exec",
 
   // (2) EmailJS — client-side confirmation email (ACTIVE DEFAULT).
   //     From your EmailJS dashboard. Leave blank to disable EmailJS
