@@ -1,0 +1,428 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Register for the GIZ-ZME Remote Work Training Programme — a practical 2-day training for returning and potential migrants to build remote work, freelancing, and digital skills." />
+<title>Register — GIZ-ZME Remote Work Training Programme</title>
+
+<!-- Google Fonts: Lora (serif headings) + Inter (sans body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<link rel="stylesheet" href="styles.css" />
+
+<a class="skip-link" href="#registration-form">Skip to registration form</a>
+
+<div class="page">
+  <!-- ============================================================= -->
+  <!-- BRANDING / LOGOS                                               -->
+  <!-- Drop the GIZ logo file at assets/giz-logo.png                  -->
+  <!-- ============================================================= -->
+  <header class="brand" role="banner">
+    <div class="brand__logos">
+      <!-- GIZ logo: replace the file at assets/giz-logo.png -->
+      <img
+        class="brand__logo"
+        src="assets/giz-logo.png"
+        alt="GIZ logo"
+        width="140"
+        height="64"
+        onerror="this.style.display='none'; document.getElementById('logo-placeholder').hidden=false;"
+      />
+      <span id="logo-placeholder" class="brand__logo-placeholder" hidden>
+        GIZ logo goes here → assets/giz-logo.png
+      </span>
+      <span class="brand__partner">Data-Lead Africa</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ============================================================= -->
+    <!-- OVERVIEW (display only — not part of the form)                 -->
+    <!-- ============================================================= -->
+    <section class="overview" aria-labelledby="overview-heading">
+      <h1 id="overview-heading" class="overview__title">
+        GIZ-ZME Remote Work Training Programme
+      </h1>
+      <p class="overview__subhead">
+        Build practical skills for online work, freelancing, and remote job
+        opportunities.
+      </p>
+      <p class="overview__intro">
+        A practical 2-day training programme for eligible returning and
+        potential migrants who want to develop remote work skills.
+      </p>
+      <p class="overview__tagline">YOUR SKILLS. YOUR FUTURE. YOUR FREEDOM.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h2 class="card__title">What you will learn</h2>
+          <ul class="card__list">
+            <li>Remote work basics</li>
+            <li>Digital work tools</li>
+            <li>Freelancing platforms</li>
+            <li>Professional communication</li>
+            <li>Cybersecurity</li>
+            <li>Career readiness</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="card__title">What you will get</h2>
+          <ul class="card__list">
+            <li>Hands-on training</li>
+            <li>Remote work profile setup</li>
+            <li>Capstone project</li>
+            <li>Post-training mentorship</li>
+            <li>Certificate for successful participants</li>
+          </ul>
+        </div>
+
+        <div class="card card--details">
+          <h2 class="card__title">Programme details</h2>
+          <ul class="card__list card__list--plain">
+            <li><strong>Start Date:</strong> 20 July 2026</li>
+            <li><strong>Location:</strong> Abuja</li>
+            <li><strong>Duration:</strong> 2 days per batch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- PROGRESS INDICATOR                                             -->
+    <!-- ============================================================= -->
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar"><span class="progress__fill" id="progressFill"></span></div>
+      <p class="progress__label"><span id="progressCount">0</span> of 5 sections complete</p>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- REGISTRATION FORM                                              -->
+    <!-- ============================================================= -->
+    <form id="registration-form" class="form" novalidate>
+      <!-- Honeypot: hidden from humans, catches bots. Do not remove. -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="company_website">Company website (leave blank)</label>
+        <input
+          type="text"
+          id="company_website"
+          name="company_website"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- ===== Section 1 — Your details ===== -->
+      <fieldset class="section" aria-labelledby="s1-legend">
+        <legend id="s1-legend" class="section__legend">
+          <span class="section__num">1</span> Your details
+        </legend>
+
+        <div class="field">
+          <label class="field__label" for="fullName">
+            Full name <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            autocomplete="name"
+            required
+            aria-required="true"
+            aria-describedby="fullName-err"
+          />
+          <p class="field__error" id="fullName-err" role="alert"></p>
+        </div>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Gender <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="gender-err">
+            <label class="choice"><input type="radio" name="gender" value="Female" required /> <span>Female</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Male" required /> <span>Male</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Prefer not to say" required /> <span>Prefer not to say</span></label>
+          </div>
+          <p class="field__error" id="gender-err" role="alert"></p>
+        </fieldset>
+
+        <div class="field">
+          <label class="field__label" for="phone">
+            Phone number (WhatsApp preferred) <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="e.g. 0803 123 4567"
+            required
+            aria-required="true"
+            aria-describedby="phone-err"
+          />
+          <p class="field__error" id="phone-err" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">
+            Email address <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="email-help email-err"
+          />
+          <p class="field__help" id="email-help">
+            Use a professional email (your name, not a nickname).
+          </p>
+          <p class="field__error" id="email-err" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="state">
+            State of residence <span class="req" aria-hidden="true">*</span>
+          </label>
+          <select id="state" name="state" required aria-required="true" aria-describedby="state-err">
+            <option value="" disabled selected>Select your state…</option>
+            <option>Abia</option>
+            <option>Adamawa</option>
+            <option>Akwa Ibom</option>
+            <option>Anambra</option>
+            <option>Bauchi</option>
+            <option>Bayelsa</option>
+            <option>Benue</option>
+            <option>Borno</option>
+            <option>Cross River</option>
+            <option>Delta</option>
+            <option>Ebonyi</option>
+            <option>Edo</option>
+            <option>Ekiti</option>
+            <option>Enugu</option>
+            <option>FCT (Abuja)</option>
+            <option>Gombe</option>
+            <option>Imo</option>
+            <option>Jigawa</option>
+            <option>Kaduna</option>
+            <option>Kano</option>
+            <option>Katsina</option>
+            <option>Kebbi</option>
+            <option>Kogi</option>
+            <option>Kwara</option>
+            <option>Lagos</option>
+            <option>Nasarawa</option>
+            <option>Niger</option>
+            <option>Ogun</option>
+            <option>Ondo</option>
+            <option>Osun</option>
+            <option>Oyo</option>
+            <option>Plateau</option>
+            <option>Rivers</option>
+            <option>Sokoto</option>
+            <option>Taraba</option>
+            <option>Yobe</option>
+            <option>Zamfara</option>
+          </select>
+          <p class="field__error" id="state-err" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <!-- ===== Section 2 — Background ===== -->
+      <fieldset class="section" aria-labelledby="s2-legend">
+        <legend id="s2-legend" class="section__legend">
+          <span class="section__num">2</span> Background
+        </legend>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Which best describes you? <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="describe-err">
+            <label class="choice"><input type="radio" name="describe" value="Returning migrant" required /> <span>Returning migrant</span></label>
+            <label class="choice"><input type="radio" name="describe" value="Potential migrant" required /> <span>Potential migrant</span></label>
+            <label class="choice"><input type="radio" name="describe" value="Neither" required /> <span>Neither</span></label>
+          </div>
+          <p class="field__error" id="describe-err" role="alert"></p>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 3 — Your skills & experience ===== -->
+      <fieldset class="section" aria-labelledby="s3-legend">
+        <legend id="s3-legend" class="section__legend">
+          <span class="section__num">3</span> Your skills &amp; experience
+        </legend>
+
+        <div class="field">
+          <label class="field__label" for="occupation">
+            Current or most recent occupation / field
+          </label>
+          <input type="text" id="occupation" name="occupation" autocomplete="organization-title" />
+        </div>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">Highest level of education</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="education" value="Secondary" /> <span>Secondary</span></label>
+            <label class="choice"><input type="radio" name="education" value="OND–NCE" /> <span>OND–NCE</span></label>
+            <label class="choice"><input type="radio" name="education" value="HND–Bachelor's" /> <span>HND–Bachelor's</span></label>
+            <label class="choice"><input type="radio" name="education" value="Postgraduate" /> <span>Postgraduate</span></label>
+            <label class="choice"><input type="radio" name="education" value="None of these" /> <span>None of these</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Which of these do you have real experience in? <span class="field__hint">(tick all)</span>
+          </legend>
+          <div class="choices choices--grid">
+            <label class="choice"><input type="checkbox" name="experience" value="Data entry" /> <span>Data entry</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Online research" /> <span>Online research</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Survey/data analysis" /> <span>Survey/data analysis</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Virtual assistance" /> <span>Virtual assistance</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Writing/copywriting" /> <span>Writing/copywriting</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Social media management" /> <span>Social media management</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Graphic design" /> <span>Graphic design</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Video editing" /> <span>Video editing</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Translation" /> <span>Translation</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="HR/recruitment" /> <span>HR/recruitment</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Bookkeeping/accounting" /> <span>Bookkeeping/accounting</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Project coordination" /> <span>Project coordination</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Online tutoring" /> <span>Online tutoring</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Legal/paralegal" /> <span>Legal/paralegal</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="None of these yet" /> <span>None of these yet</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Have you done any freelance or remote work before?
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="freelance-err">
+            <label class="choice"><input type="radio" name="freelanceBefore" value="Yes" required /> <span>Yes</span></label>
+            <label class="choice"><input type="radio" name="freelanceBefore" value="No" required /> <span>No</span></label>
+          </div>
+          <p class="field__error" id="freelance-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            If yes, which platforms? <span class="field__hint">(tick all)</span>
+          </legend>
+          <div class="choices choices--grid">
+            <label class="choice"><input type="checkbox" name="platforms" value="Upwork" /> <span>Upwork</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Fiverr" /> <span>Fiverr</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="LinkedIn" /> <span>LinkedIn</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Appen/Remotasks" /> <span>Appen/Remotasks</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Other" /> <span>Other</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="None yet" /> <span>None yet</span></label>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 4 — Digital readiness ===== -->
+      <fieldset class="section" aria-labelledby="s4-legend">
+        <legend id="s4-legend" class="section__legend">
+          <span class="section__num">4</span> Digital readiness
+        </legend>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            How comfortable are you using digital tools (email, Google Docs, etc.)?
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="comfort-err">
+            <label class="choice"><input type="radio" name="digitalComfort" value="Beginner" required /> <span>Beginner</span></label>
+            <label class="choice"><input type="radio" name="digitalComfort" value="Intermediate" required /> <span>Intermediate</span></label>
+            <label class="choice"><input type="radio" name="digitalComfort" value="Advanced" required /> <span>Advanced</span></label>
+          </div>
+          <p class="field__error" id="comfort-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            What device(s) do you have access to? <span class="field__hint">(tick all)</span>
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices choices--grid" aria-describedby="devices-err">
+            <label class="choice"><input type="checkbox" name="devices" value="Smartphone" /> <span>Smartphone</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Laptop" /> <span>Laptop</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Desktop" /> <span>Desktop</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Tablet" /> <span>Tablet</span></label>
+          </div>
+          <p class="field__error" id="devices-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">How reliable is your internet access?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="internet" value="Very reliable" /> <span>Very reliable</span></label>
+            <label class="choice"><input type="radio" name="internet" value="Somewhat reliable" /> <span>Somewhat reliable</span></label>
+            <label class="choice"><input type="radio" name="internet" value="Unreliable" /> <span>Unreliable</span></label>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 5 — Consent ===== -->
+      <fieldset class="section" aria-labelledby="s5-legend">
+        <legend id="s5-legend" class="section__legend">
+          <span class="section__num">5</span> Consent
+        </legend>
+
+        <div class="field">
+          <label class="choice choice--consent">
+            <input type="checkbox" id="consent" name="consent" required aria-required="true" aria-describedby="consent-err" />
+            <span>
+              I consent to Data-Lead Africa collecting and processing this
+              information for the GIZ-ZME Remote Work Training Programme.
+              <span class="req" aria-hidden="true">*</span>
+            </span>
+          </label>
+          <p class="field__error" id="consent-err" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <!-- ===== Submit ===== -->
+      <div class="form__footer">
+        <p class="form__error-summary" id="formError" role="alert" hidden></p>
+        <button type="submit" class="btn" id="submitBtn">
+          <span class="btn__label">Submit registration</span>
+          <span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form__privacy">
+          We only collect what you see above. We never ask for BVN, NIN,
+          government ID, or bank details on this form.
+        </p>
+      </div>
+    </form>
+
+    <!-- ============================================================= -->
+    <!-- SUCCESS SCREEN                                                 -->
+    <!-- ============================================================= -->
+    <section class="success" id="successScreen" hidden aria-live="polite" tabindex="-1">
+      <div class="success__icon" aria-hidden="true">✓</div>
+      <h2 class="success__title">Thank you — you're registered.</h2>
+      <p class="success__text">
+        Check your email for confirmation. Our team will follow up with your
+        batch details for the GIZ-ZME Remote Work Training Programme
+        (starts 20 July 2026, Abuja).
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Data-Lead Africa · In partnership with GIZ-ZME</p>
+  </footer>
+</div>
+
+<!-- EmailJS SDK (client-side email). Safe to keep even if you switch to
+     Apps Script email — the code guards on the config being filled in. -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
