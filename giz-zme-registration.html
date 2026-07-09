@@ -1,0 +1,1283 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Register for the GIZ-ZME Remote Work Training Programme — a practical 2-day training for returning and potential migrants to build remote work, freelancing, and digital skills." />
+<title>Register — GIZ-ZME Remote Work Training Programme</title>
+
+<!-- Google Fonts: Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+/* ================================================================
+   GIZ-ZME Remote Work Training Programme — Registration form
+   Re-skinned to the requested design system:
+   Poppins • warm orange palette • soft gradient background • rounded cards.
+
+   THEME: edit these tokens to re-skin the whole page.
+   ================================================================ */
+:root {
+  color-scheme: light;
+
+  /* ---- Palette (from the provided design system) ---- */
+  --clr-orange: #f56e0f;          /* brand accent */
+  --clr-orange-medium: #f9a971;
+  --clr-orange-light: #fde9da;
+  --clr-blue: #e7f5fe;
+  --clr-gray: #2c2b2d;
+  --clr-gray-light: #dae2e7;
+  --bg-gradient: linear-gradient(
+    105.6deg,
+    #fde2cf -45.34%,
+    #e7f5fe 51.56%,
+    #fffbeb 87.94%,
+    #fef1e7 105.06%
+  );
+
+  /* ---- Derived, contrast-safe (WCAG-AA) ---- */
+  --orange-strong: #d94a00;       /* white text on this passes AA */
+  --orange-deep: #7c2d12;         /* dark orange for text on light bg */
+  --ink: #1c1b22;                 /* body text */
+  --ink-soft: #55535e;            /* secondary text */
+  --surface: #ffffff;
+  --line: #e3ddd3;
+  --error: #c02626;
+  --error-bg: #fdecec;
+  --focus: var(--clr-orange);
+
+  /* ---- Type ---- */
+  --font-sans: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+  /* ---- Radii / spacing / shadow (from the design system) ---- */
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 12px;
+  --radius-4: 16px;
+  --radius-5: 20px;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-2: 0 12px 32px rgba(28, 27, 34, 0.1);
+
+  --gap: 1rem;
+  --tap: 48px;
+  --maxw: 760px;
+}
+
+/* ---------- Reset-ish ---------- */
+html { box-sizing: border-box; -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* The HTML `hidden` attribute must always win, even over elements that set
+   their own `display` (e.g. the logo placeholder, success screen). */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg-gradient) fixed;
+  background-color: #fef1e7; /* fallback while gradient paints */
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- Skip link (a11y) ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--orange-strong);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  z-index: 100;
+  border-radius: 0 0 var(--radius-2) 0;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- Layout shell ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+/* ---------- Branding ---------- */
+.brand {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.brand__logos {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.brand__logo { max-height: 60px; width: auto; border-radius: var(--radius-1); }
+.brand__logo-placeholder {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border: 2px dashed var(--clr-gray-light);
+  border-radius: var(--radius-2);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+.brand__partner {
+  font-weight: 600;
+  color: var(--orange-deep);
+  font-size: 1.05rem;
+}
+
+/* ---------- Overview ---------- */
+.overview { padding: 2rem 0 0.5rem; }
+.overview__title {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+.overview__subhead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--orange-strong);
+  margin: 0 0 0.75rem;
+}
+.overview__intro { color: var(--ink-soft); margin: 0 0 1.25rem; max-width: 60ch; }
+.overview__tagline {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--orange-deep);
+  background: var(--clr-orange-light);
+  border-left: 5px solid var(--clr-orange);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-3);
+  margin: 0 0 1.75rem;
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  margin-bottom: 2.25rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-4);
+  padding: 1.35rem 1.4rem;
+  box-shadow: var(--shadow-1);
+}
+.card__title {
+  font-weight: 600;
+  color: var(--orange-deep);
+  font-size: 1.15rem;
+  margin: 0 0 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card__title::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--clr-orange);
+  flex: none;
+}
+.card--details .card__title::before { background: var(--clr-orange-medium); }
+.card__list { margin: 0; padding-left: 1.2rem; color: var(--ink-soft); }
+.card__list li { margin-bottom: 0.35rem; }
+.card__list--plain { list-style: none; padding-left: 0; }
+.card__list--plain strong { color: var(--ink); }
+
+/* ---------- Progress ---------- */
+.progress {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 251, 245, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.75rem 0;
+  z-index: 10;
+  border-radius: 0 0 var(--radius-3) var(--radius-3);
+}
+.progress__bar {
+  height: 10px;
+  background: #f0e3d6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress__fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--clr-orange-medium), var(--clr-orange));
+  transition: width 0.35s ease;
+}
+.progress__label {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Form ---------- */
+.form { margin-top: 1.5rem; }
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-4);
+  padding: 1.5rem 1.35rem 1.6rem;
+  margin: 0 0 1.5rem;
+  min-width: 0;
+  box-shadow: var(--shadow-1);
+}
+.section__legend {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.3rem;
+  padding: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.section__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: var(--orange-strong);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: none;
+}
+
+/* Field wrapper */
+.field { margin-bottom: 1.35rem; border: 0; padding: 0; min-width: 0; }
+.field--group { margin: 0 0 1.35rem; }
+.field__label {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+  padding: 0;
+}
+.field__hint { font-weight: 400; color: var(--ink-soft); font-size: 0.9rem; }
+.field__help { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+.req { color: var(--error); font-weight: 700; }
+
+/* Text inputs & selects */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0.75rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--clr-gray-light);
+  border-radius: var(--radius-2);
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input::placeholder { color: #9a97a1; }
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355535e' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+}
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 3px rgba(245, 110, 15, 0.25);
+}
+button:focus-visible,
+.choice input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+/* Choices (radio / checkbox) */
+.choices { display: flex; flex-direction: column; gap: 0.55rem; }
+.choices--grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: var(--tap);
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--clr-gray-light);
+  border-radius: var(--radius-3);
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.choice:hover { border-color: var(--clr-orange-medium); }
+.choice input {
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: var(--clr-orange);
+  flex: none;
+  margin: 0;
+}
+.choice input:checked ~ span { font-weight: 600; color: var(--orange-deep); }
+.choice:has(input:checked) {
+  border-color: var(--clr-orange);
+  background: var(--clr-orange-light);
+}
+.choice--consent { align-items: flex-start; }
+.choice--consent input { margin-top: 0.15rem; }
+
+/* Error messages */
+.field__error {
+  color: var(--error);
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0;
+}
+.field__error:empty { display: none; }
+
+/* ---------- Footer / submit ---------- */
+.form__footer { margin-top: 0.5rem; }
+.form__error-summary {
+  background: var(--error-bg);
+  border: 1.5px solid var(--error);
+  color: var(--error);
+  border-radius: var(--radius-3);
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+.btn {
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  border-radius: var(--radius-3);
+  background: var(--orange-strong);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 6px 16px rgba(217, 74, 0, 0.28);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+.btn:hover:not(:disabled) {
+  background: #c24200;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(217, 74, 0, 0.34);
+}
+.btn:active:not(:disabled) { transform: translateY(0); }
+.btn:disabled { background: var(--ink-soft); box-shadow: none; cursor: progress; }
+.btn__spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.7s linear infinite;
+}
+.btn.is-loading .btn__spinner { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form__privacy {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+/* ---------- Honeypot (hidden from humans) ---------- */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Success screen ---------- */
+.success {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-4);
+  padding: 2.75rem 1.5rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow-2);
+}
+.success__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  background: var(--orange-strong);
+  color: #fff;
+  font-size: 2.3rem;
+  line-height: 72px;
+}
+.success__title {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.65rem;
+  margin: 0 0 0.6rem;
+}
+.success__text { color: var(--ink-soft); max-width: 44ch; margin: 0 auto; }
+
+/* ---------- Site footer ---------- */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive: tablet / desktop ---------- */
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .choices--grid { grid-template-columns: 1fr 1fr; }
+  .container { padding-bottom: 4rem; }
+}
+@media (min-width: 900px) {
+  .choices--grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition: none !important; }
+}
+
+</style>
+
+<a class="skip-link" href="#registration-form">Skip to registration form</a>
+
+<div class="page">
+  <!-- ============================================================= -->
+  <!-- BRANDING / LOGOS                                               -->
+  <!-- Drop the GIZ logo file at assets/giz-logo.png                  -->
+  <!-- ============================================================= -->
+  <header class="brand" role="banner">
+    <div class="brand__logos">
+      <!-- GIZ logo. An SVG recreation ships at assets/giz-logo.svg.
+           To use the official raster asset instead, drop it at
+           assets/giz-logo.png and change src to "assets/giz-logo.png". -->
+      <img
+        class="brand__logo"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkdJWiBsb2dvIj4KICA8dGl0bGU+R0laPC90aXRsZT4KICA8IS0tIFdoaXRlIGZpZWxkIC0tPgogIDxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiBmaWxsPSIjZmZmZmZmIi8+CiAgPCEtLSBHSVogcmVkIHdvcmRtYXJrICJnaXoiLiBHSVogY29ycG9yYXRlIHJlZCDiiYggI0U0MDMyRSAtLT4KICA8ZyBmaWxsPSIjRTQwMzJFIj4KICAgIDx0ZXh0IHg9IjUwJSIgeT0iMTUwIgogICAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICAgIGZvbnQtZmFtaWx5PSJBcmlhbCBSb3VuZGVkIE1UIEJvbGQsIEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiCiAgICAgICAgICBmb250LXdlaWdodD0iODAwIgogICAgICAgICAgZm9udC1zaXplPSIxMjAiCiAgICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTIiPmdpejwvdGV4dD4KICAgIDwhLS0gRGlzdGluY3RpdmUgc2xhbnRlZCBpLWRvdCAocGFyYWxsZWxvZ3JhbSkgb3ZlciB0aGUgJ2knIC0tPgogICAgPHBvbHlnb24gcG9pbnRzPSIxMTgsNTIgMTQxLDUyIDEzMyw3OCAxMTAsNzgiLz4KICA8L2c+Cjwvc3ZnPgo="
+        alt="GIZ logo"
+        width="120"
+        height="64"
+        onerror="this.style.display='none'; document.getElementById('logo-placeholder').hidden=false;"
+      />
+      <span id="logo-placeholder" class="brand__logo-placeholder" hidden>
+        GIZ logo goes here → assets/giz-logo.png
+      </span>
+      <span class="brand__partner">Data-Lead Africa</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ============================================================= -->
+    <!-- OVERVIEW (display only — not part of the form)                 -->
+    <!-- ============================================================= -->
+    <section class="overview" aria-labelledby="overview-heading">
+      <h1 id="overview-heading" class="overview__title">
+        GIZ-ZME Remote Work Training Programme
+      </h1>
+      <p class="overview__subhead">
+        Build practical skills for online work, freelancing, and remote job
+        opportunities.
+      </p>
+      <p class="overview__intro">
+        A practical 2-day training programme for eligible returning and
+        potential migrants who want to develop remote work skills.
+      </p>
+      <p class="overview__tagline">YOUR SKILLS. YOUR FUTURE. YOUR FREEDOM.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h2 class="card__title">What you will learn</h2>
+          <ul class="card__list">
+            <li>Remote work basics</li>
+            <li>Digital work tools</li>
+            <li>Freelancing platforms</li>
+            <li>Professional communication</li>
+            <li>Cybersecurity</li>
+            <li>Career readiness</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="card__title">What you will get</h2>
+          <ul class="card__list">
+            <li>Hands-on training</li>
+            <li>Remote work profile setup</li>
+            <li>Capstone project</li>
+            <li>Post-training mentorship</li>
+            <li>Certificate for successful participants</li>
+          </ul>
+        </div>
+
+        <div class="card card--details">
+          <h2 class="card__title">Programme details</h2>
+          <ul class="card__list card__list--plain">
+            <li><strong>Start Date:</strong> 20 July 2026</li>
+            <li><strong>Location:</strong> Abuja</li>
+            <li><strong>Duration:</strong> 2 days per batch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- PROGRESS INDICATOR                                             -->
+    <!-- ============================================================= -->
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar"><span class="progress__fill" id="progressFill"></span></div>
+      <p class="progress__label"><span id="progressCount">0</span> of 5 sections complete</p>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- REGISTRATION FORM                                              -->
+    <!-- ============================================================= -->
+    <form id="registration-form" class="form" novalidate>
+      <!-- Honeypot: hidden from humans, catches bots. Do not remove. -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="company_website">Company website (leave blank)</label>
+        <input
+          type="text"
+          id="company_website"
+          name="company_website"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- ===== Section 1 — Your details ===== -->
+      <fieldset class="section" aria-labelledby="s1-legend">
+        <legend id="s1-legend" class="section__legend">
+          <span class="section__num">1</span> Your details
+        </legend>
+
+        <div class="field">
+          <label class="field__label" for="fullName">
+            Full name <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            autocomplete="name"
+            required
+            aria-required="true"
+            aria-describedby="fullName-err"
+          />
+          <p class="field__error" id="fullName-err" role="alert"></p>
+        </div>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Gender <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="gender-err">
+            <label class="choice"><input type="radio" name="gender" value="Female" required /> <span>Female</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Male" required /> <span>Male</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Prefer not to say" required /> <span>Prefer not to say</span></label>
+          </div>
+          <p class="field__error" id="gender-err" role="alert"></p>
+        </fieldset>
+
+        <div class="field">
+          <label class="field__label" for="phone">
+            Phone number (WhatsApp preferred) <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="e.g. 0803 123 4567"
+            required
+            aria-required="true"
+            aria-describedby="phone-err"
+          />
+          <p class="field__error" id="phone-err" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">
+            Email address <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="email-help email-err"
+          />
+          <p class="field__help" id="email-help">
+            Use a professional email (your name, not a nickname).
+          </p>
+          <p class="field__error" id="email-err" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="state">
+            State of residence <span class="req" aria-hidden="true">*</span>
+          </label>
+          <select id="state" name="state" required aria-required="true" aria-describedby="state-err">
+            <option value="" disabled selected>Select your state…</option>
+            <option>Abia</option>
+            <option>Adamawa</option>
+            <option>Akwa Ibom</option>
+            <option>Anambra</option>
+            <option>Bauchi</option>
+            <option>Bayelsa</option>
+            <option>Benue</option>
+            <option>Borno</option>
+            <option>Cross River</option>
+            <option>Delta</option>
+            <option>Ebonyi</option>
+            <option>Edo</option>
+            <option>Ekiti</option>
+            <option>Enugu</option>
+            <option>FCT (Abuja)</option>
+            <option>Gombe</option>
+            <option>Imo</option>
+            <option>Jigawa</option>
+            <option>Kaduna</option>
+            <option>Kano</option>
+            <option>Katsina</option>
+            <option>Kebbi</option>
+            <option>Kogi</option>
+            <option>Kwara</option>
+            <option>Lagos</option>
+            <option>Nasarawa</option>
+            <option>Niger</option>
+            <option>Ogun</option>
+            <option>Ondo</option>
+            <option>Osun</option>
+            <option>Oyo</option>
+            <option>Plateau</option>
+            <option>Rivers</option>
+            <option>Sokoto</option>
+            <option>Taraba</option>
+            <option>Yobe</option>
+            <option>Zamfara</option>
+          </select>
+          <p class="field__error" id="state-err" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <!-- ===== Section 2 — Background ===== -->
+      <fieldset class="section" aria-labelledby="s2-legend">
+        <legend id="s2-legend" class="section__legend">
+          <span class="section__num">2</span> Background
+        </legend>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Which best describes you? <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="describe-err">
+            <label class="choice"><input type="radio" name="describe" value="Returning migrant" required /> <span>Returning migrant</span></label>
+            <label class="choice"><input type="radio" name="describe" value="Potential migrant" required /> <span>Potential migrant</span></label>
+            <label class="choice"><input type="radio" name="describe" value="Neither" required /> <span>Neither</span></label>
+          </div>
+          <p class="field__error" id="describe-err" role="alert"></p>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 3 — Your skills & experience ===== -->
+      <fieldset class="section" aria-labelledby="s3-legend">
+        <legend id="s3-legend" class="section__legend">
+          <span class="section__num">3</span> Your skills &amp; experience
+        </legend>
+
+        <div class="field">
+          <label class="field__label" for="occupation">
+            Current or most recent occupation / field
+          </label>
+          <input type="text" id="occupation" name="occupation" autocomplete="organization-title" />
+        </div>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">Highest level of education</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="education" value="Secondary" /> <span>Secondary</span></label>
+            <label class="choice"><input type="radio" name="education" value="OND–NCE" /> <span>OND–NCE</span></label>
+            <label class="choice"><input type="radio" name="education" value="HND–Bachelor's" /> <span>HND–Bachelor's</span></label>
+            <label class="choice"><input type="radio" name="education" value="Postgraduate" /> <span>Postgraduate</span></label>
+            <label class="choice"><input type="radio" name="education" value="None of these" /> <span>None of these</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Which of these do you have real experience in? <span class="field__hint">(tick all)</span>
+          </legend>
+          <div class="choices choices--grid">
+            <label class="choice"><input type="checkbox" name="experience" value="Data entry" /> <span>Data entry</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Online research" /> <span>Online research</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Survey/data analysis" /> <span>Survey/data analysis</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Virtual assistance" /> <span>Virtual assistance</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Writing/copywriting" /> <span>Writing/copywriting</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Social media management" /> <span>Social media management</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Graphic design" /> <span>Graphic design</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Video editing" /> <span>Video editing</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Translation" /> <span>Translation</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="HR/recruitment" /> <span>HR/recruitment</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Bookkeeping/accounting" /> <span>Bookkeeping/accounting</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Project coordination" /> <span>Project coordination</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Online tutoring" /> <span>Online tutoring</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="Legal/paralegal" /> <span>Legal/paralegal</span></label>
+            <label class="choice"><input type="checkbox" name="experience" value="None of these yet" /> <span>None of these yet</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            Have you done any freelance or remote work before?
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="freelance-err">
+            <label class="choice"><input type="radio" name="freelanceBefore" value="Yes" required /> <span>Yes</span></label>
+            <label class="choice"><input type="radio" name="freelanceBefore" value="No" required /> <span>No</span></label>
+          </div>
+          <p class="field__error" id="freelance-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            If yes, which platforms? <span class="field__hint">(tick all)</span>
+          </legend>
+          <div class="choices choices--grid">
+            <label class="choice"><input type="checkbox" name="platforms" value="Upwork" /> <span>Upwork</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Fiverr" /> <span>Fiverr</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="LinkedIn" /> <span>LinkedIn</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Appen/Remotasks" /> <span>Appen/Remotasks</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="Other" /> <span>Other</span></label>
+            <label class="choice"><input type="checkbox" name="platforms" value="None yet" /> <span>None yet</span></label>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 4 — Digital readiness ===== -->
+      <fieldset class="section" aria-labelledby="s4-legend">
+        <legend id="s4-legend" class="section__legend">
+          <span class="section__num">4</span> Digital readiness
+        </legend>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            How comfortable are you using digital tools (email, Google Docs, etc.)?
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices" role="radiogroup" aria-required="true" aria-describedby="comfort-err">
+            <label class="choice"><input type="radio" name="digitalComfort" value="Beginner" required /> <span>Beginner</span></label>
+            <label class="choice"><input type="radio" name="digitalComfort" value="Intermediate" required /> <span>Intermediate</span></label>
+            <label class="choice"><input type="radio" name="digitalComfort" value="Advanced" required /> <span>Advanced</span></label>
+          </div>
+          <p class="field__error" id="comfort-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">
+            What device(s) do you have access to? <span class="field__hint">(tick all)</span>
+            <span class="req" aria-hidden="true">*</span>
+          </legend>
+          <div class="choices choices--grid" aria-describedby="devices-err">
+            <label class="choice"><input type="checkbox" name="devices" value="Smartphone" /> <span>Smartphone</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Laptop" /> <span>Laptop</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Desktop" /> <span>Desktop</span></label>
+            <label class="choice"><input type="checkbox" name="devices" value="Tablet" /> <span>Tablet</span></label>
+          </div>
+          <p class="field__error" id="devices-err" role="alert"></p>
+        </fieldset>
+
+        <fieldset class="field field--group">
+          <legend class="field__label">How reliable is your internet access?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="internet" value="Very reliable" /> <span>Very reliable</span></label>
+            <label class="choice"><input type="radio" name="internet" value="Somewhat reliable" /> <span>Somewhat reliable</span></label>
+            <label class="choice"><input type="radio" name="internet" value="Unreliable" /> <span>Unreliable</span></label>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <!-- ===== Section 5 — Consent ===== -->
+      <fieldset class="section" aria-labelledby="s5-legend">
+        <legend id="s5-legend" class="section__legend">
+          <span class="section__num">5</span> Consent
+        </legend>
+
+        <div class="field">
+          <label class="choice choice--consent">
+            <input type="checkbox" id="consent" name="consent" required aria-required="true" aria-describedby="consent-err" />
+            <span>
+              I consent to Data-Lead Africa collecting and processing this
+              information for the GIZ-ZME Remote Work Training Programme.
+              <span class="req" aria-hidden="true">*</span>
+            </span>
+          </label>
+          <p class="field__error" id="consent-err" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <!-- ===== Submit ===== -->
+      <div class="form__footer">
+        <p class="form__error-summary" id="formError" role="alert" hidden></p>
+        <button type="submit" class="btn" id="submitBtn">
+          <span class="btn__label">Submit registration</span>
+          <span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form__privacy">
+          We only collect what you see above. We never ask for BVN, NIN,
+          government ID, or bank details on this form.
+        </p>
+      </div>
+    </form>
+
+    <!-- ============================================================= -->
+    <!-- SUCCESS SCREEN                                                 -->
+    <!-- ============================================================= -->
+    <section class="success" id="successScreen" hidden aria-live="polite" tabindex="-1">
+      <div class="success__icon" aria-hidden="true">✓</div>
+      <h2 class="success__title">Thank you — you're registered.</h2>
+      <p class="success__text">
+        Check your email for confirmation. Our team will follow up with your
+        batch details for the GIZ-ZME Remote Work Training Programme
+        (starts 20 July 2026, Abuja).
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Data-Lead Africa · In partnership with GIZ-ZME</p>
+  </footer>
+</div>
+
+<!-- Confirmation email is sent by the Apps Script (all-Google); no EmailJS needed. -->
+<script>
+/* ================================================================
+   GIZ-ZME Remote Work Training Programme — Registration logic
+   Vanilla JS. No framework.
+
+   ┌────────────────────────────────────────────────────────────┐
+   │  CONFIG — FILL THESE IN. This is the ONLY place secrets/URLs │
+   │  live. See README.md for exactly where each value comes from.│
+   └────────────────────────────────────────────────────────────┘
+   ================================================================ */
+const CONFIG = {
+  // (1) Google Apps Script Web App URL.
+  //     Deploy Code.gs as a Web App (Execute as = Me, Access = Anyone),
+  //     then paste the /exec URL here.
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzkPAd3oVexfQkKz5FKUnPmzD4FmDhMZGesTBqHSFZp_u74xmkHDXI20JqNRPP1IHXvkA/exec",
+
+  // (2) EmailJS — client-side confirmation email (ACTIVE DEFAULT).
+  //     From your EmailJS dashboard. Leave blank to disable EmailJS
+  //     (e.g. if you use Option B: MailApp inside Code.gs instead).
+  EMAILJS_PUBLIC_KEY: "PASTE_YOUR_EMAILJS_PUBLIC_KEY_HERE",
+  EMAILJS_SERVICE_ID: "PASTE_YOUR_EMAILJS_SERVICE_ID_HERE",
+  EMAILJS_TEMPLATE_ID: "PASTE_YOUR_EMAILJS_TEMPLATE_ID_HERE",
+
+  // Programme facts used in the confirmation email (rarely change).
+  PROGRAMME_NAME: "GIZ-ZME Remote Work Training Programme",
+  START_DATE: "20 July 2026",
+  LOCATION: "Abuja",
+};
+
+/* ================================================================
+   Boot
+   ================================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Initialise EmailJS if a public key was provided.
+  if (
+    window.emailjs &&
+    CONFIG.EMAILJS_PUBLIC_KEY &&
+    !CONFIG.EMAILJS_PUBLIC_KEY.startsWith("PASTE_")
+  ) {
+    emailjs.init({ publicKey: CONFIG.EMAILJS_PUBLIC_KEY });
+  }
+
+  wireValidation();
+  wireProgress();
+
+  document
+    .getElementById("registration-form")
+    .addEventListener("submit", handleSubmit);
+});
+
+/* ================================================================
+   Validation
+   ================================================================ */
+
+// Map of validators. Each returns "" when valid, else an error string.
+const VALIDATORS = {
+  fullName: (f) =>
+    getText(f, "fullName") ? "" : "Please enter your full name.",
+  gender: (f) =>
+    getRadio(f, "gender") ? "" : "Please select an option.",
+  phone: (f) => {
+    const v = getText(f, "phone");
+    if (!v) return "Please enter your phone number.";
+    // Accept digits, spaces, +, -, () — need at least 7 digits.
+    const digits = v.replace(/[^0-9]/g, "");
+    if (!/^[0-9+()\-\s]+$/.test(v) || digits.length < 7)
+      return "Please enter a valid phone number.";
+    return "";
+  },
+  email: (f) => {
+    const v = getText(f, "email");
+    if (!v) return "Please enter your email address.";
+    // Pragmatic email pattern.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+      return "Please enter a valid email address.";
+    return "";
+  },
+  state: (f) =>
+    getText(f, "state") ? "" : "Please select your state of residence.",
+  describe: (f) =>
+    getRadio(f, "describe") ? "" : "Please select an option.",
+  freelanceBefore: (f) =>
+    getRadio(f, "freelanceBefore") ? "" : "Please select Yes or No.",
+  digitalComfort: (f) =>
+    getRadio(f, "digitalComfort") ? "" : "Please select your comfort level.",
+  devices: (f) =>
+    getChecked(f, "devices").length
+      ? ""
+      : "Please select at least one device.",
+  consent: (f) =>
+    f.consent.checked ? "" : "You must consent to continue.",
+};
+
+// Which error element belongs to which field.
+const ERROR_IDS = {
+  fullName: "fullName-err",
+  gender: "gender-err",
+  phone: "phone-err",
+  email: "email-err",
+  state: "state-err",
+  describe: "describe-err",
+  freelanceBefore: "freelance-err",
+  digitalComfort: "comfort-err",
+  devices: "devices-err",
+  consent: "consent-err",
+};
+
+function validateField(form, name) {
+  const validator = VALIDATORS[name];
+  if (!validator) return true;
+  const msg = validator(form);
+  showError(name, msg);
+  markInvalid(form, name, !!msg);
+  return !msg;
+}
+
+function validateAll(form) {
+  let firstInvalid = null;
+  for (const name of Object.keys(VALIDATORS)) {
+    const ok = validateField(form, name);
+    if (!ok && !firstInvalid) firstInvalid = name;
+  }
+  return firstInvalid;
+}
+
+function wireValidation() {
+  const form = document.getElementById("registration-form");
+  for (const name of Object.keys(VALIDATORS)) {
+    const els = form.elements[name];
+    if (!els) continue;
+    const list = els.length ? Array.from(els) : [els];
+    list.forEach((el) => {
+      const evt = el.type === "radio" || el.type === "checkbox" ? "change" : "blur";
+      el.addEventListener(evt, () => validateField(form, name));
+    });
+  }
+}
+
+/* ================================================================
+   Progress indicator (fills as required sections get completed)
+   ================================================================ */
+const SECTION_REQUIRED = {
+  1: ["fullName", "gender", "phone", "email", "state"],
+  2: ["describe"],
+  3: ["freelanceBefore"],
+  4: ["digitalComfort", "devices"],
+  5: ["consent"],
+};
+
+function isSectionComplete(form, fields) {
+  return fields.every((name) => VALIDATORS[name] && VALIDATORS[name](form) === "");
+}
+
+function updateProgress() {
+  const form = document.getElementById("registration-form");
+  let done = 0;
+  for (const key of Object.keys(SECTION_REQUIRED)) {
+    if (isSectionComplete(form, SECTION_REQUIRED[key])) done++;
+  }
+  const pct = (done / 5) * 100;
+  document.getElementById("progressFill").style.width = pct + "%";
+  document.getElementById("progressCount").textContent = done;
+}
+
+function wireProgress() {
+  const form = document.getElementById("registration-form");
+  form.addEventListener("input", updateProgress);
+  form.addEventListener("change", updateProgress);
+  updateProgress();
+}
+
+/* ================================================================
+   Submit flow: validate → save to Sheet → send email → success
+   ================================================================ */
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+
+  // --- Honeypot: if filled, silently reject (pretend success to bot). ---
+  if (form.company_website && form.company_website.value.trim() !== "") {
+    showSuccess(); // silent — bot thinks it worked, nothing is saved.
+    return;
+  }
+
+  clearFormError();
+
+  const firstInvalid = validateAll(form);
+  if (firstInvalid) {
+    showFormError("Please fix the highlighted fields and try again.");
+    focusField(form, firstInvalid);
+    return;
+  }
+
+  const payload = collectData(form);
+
+  setLoading(true);
+  try {
+    // (1) Save to Google Sheet via Apps Script.
+    await saveToSheet(payload);
+
+    // (2) Fire confirmation email (EmailJS default). Non-fatal on failure.
+    await sendConfirmationEmail(payload);
+
+    // (3) Success screen.
+    showSuccess();
+  } catch (err) {
+    console.error(err);
+    setLoading(false);
+    showFormError(
+      "Sorry — we couldn't submit your registration. Please check your internet connection and try again. Your answers are still here."
+    );
+  }
+}
+
+function collectData(form) {
+  return {
+    fullName: getText(form, "fullName"),
+    gender: getRadio(form, "gender"),
+    phone: getText(form, "phone"),
+    email: getText(form, "email"),
+    state: getText(form, "state"),
+    describe: getRadio(form, "describe"),
+    occupation: getText(form, "occupation"),
+    education: getRadio(form, "education"),
+    experience: getChecked(form, "experience").join(", "),
+    freelanceBefore: getRadio(form, "freelanceBefore"),
+    platforms: getChecked(form, "platforms").join(", "),
+    digitalComfort: getRadio(form, "digitalComfort"),
+    devices: getChecked(form, "devices").join(", "),
+    internet: getRadio(form, "internet"),
+    consent: form.consent.checked ? "Yes" : "No",
+    submittedAt: new Date().toISOString(),
+  };
+}
+
+/* ----- (1) Save to Google Sheet -----
+   CORS gotcha: post as a JSON *string* with text/plain content type so
+   Apps Script accepts it without needing to return CORS headers. */
+async function saveToSheet(payload) {
+  if (!CONFIG.APPS_SCRIPT_URL || CONFIG.APPS_SCRIPT_URL.startsWith("PASTE_")) {
+    throw new Error("APPS_SCRIPT_URL is not configured.");
+  }
+  const res = await fetch(CONFIG.APPS_SCRIPT_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Sheet save failed: HTTP " + res.status);
+  // Apps Script returns {ok:true}. Parse defensively.
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error("Sheet save returned an unexpected response.");
+  }
+  if (!data || data.ok !== true) {
+    throw new Error("Sheet save reported failure.");
+  }
+  return data;
+}
+
+/* ----- (2) Confirmation email -----
+   PRIMARY: EmailJS (client-side).
+   OPTION B: send from Apps Script (MailApp) — then leave the EmailJS
+   config blank and this becomes a no-op. See README for the hook. */
+async function sendConfirmationEmail(payload) {
+  const configured =
+    window.emailjs &&
+    CONFIG.EMAILJS_PUBLIC_KEY &&
+    CONFIG.EMAILJS_SERVICE_ID &&
+    CONFIG.EMAILJS_TEMPLATE_ID &&
+    !CONFIG.EMAILJS_PUBLIC_KEY.startsWith("PASTE_") &&
+    !CONFIG.EMAILJS_SERVICE_ID.startsWith("PASTE_") &&
+    !CONFIG.EMAILJS_TEMPLATE_ID.startsWith("PASTE_");
+
+  if (!configured) {
+    // EmailJS not set up. If you use Option B (MailApp), the email is
+    // already sent by Apps Script — so we just skip here silently.
+    return;
+  }
+
+  const templateParams = {
+    to_name: payload.fullName,
+    to_email: payload.email,
+    programme: CONFIG.PROGRAMME_NAME,
+    start_date: CONFIG.START_DATE,
+    location: CONFIG.LOCATION,
+  };
+
+  try {
+    await emailjs.send(
+      CONFIG.EMAILJS_SERVICE_ID,
+      CONFIG.EMAILJS_TEMPLATE_ID,
+      templateParams
+    );
+  } catch (err) {
+    // Email is a nice-to-have; the registration is already saved.
+    // Don't fail the whole submission just because email didn't send.
+    console.warn("Confirmation email failed to send:", err);
+  }
+}
+
+/* ================================================================
+   UI helpers
+   ================================================================ */
+function setLoading(isLoading) {
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = isLoading;
+  btn.classList.toggle("is-loading", isLoading);
+  btn.querySelector(".btn__label").textContent = isLoading
+    ? "Submitting…"
+    : "Submit registration";
+}
+
+function showSuccess() {
+  document.getElementById("registration-form").hidden = true;
+  document.querySelector(".overview").hidden = true;
+  document.querySelector(".progress").hidden = true;
+  const s = document.getElementById("successScreen");
+  s.hidden = false;
+  s.focus();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function showError(name, msg) {
+  const el = document.getElementById(ERROR_IDS[name]);
+  if (el) el.textContent = msg;
+}
+
+function markInvalid(form, name, invalid) {
+  const els = form.elements[name];
+  if (!els) return;
+  const list = els.length ? Array.from(els) : [els];
+  list.forEach((el) => {
+    if (invalid) el.setAttribute("aria-invalid", "true");
+    else el.removeAttribute("aria-invalid");
+  });
+}
+
+function focusField(form, name) {
+  const els = form.elements[name];
+  if (!els) return;
+  const el = els.length ? els[0] : els;
+  if (el && el.focus) el.focus();
+}
+
+function showFormError(msg) {
+  const el = document.getElementById("formError");
+  el.textContent = msg;
+  el.hidden = false;
+}
+function clearFormError() {
+  const el = document.getElementById("formError");
+  el.textContent = "";
+  el.hidden = true;
+}
+
+/* ----- tiny form-value getters ----- */
+function getText(form, name) {
+  const el = form.elements[name];
+  return el ? el.value.trim() : "";
+}
+function getRadio(form, name) {
+  const els = form.elements[name];
+  if (!els) return "";
+  const list = els.length ? Array.from(els) : [els];
+  const checked = list.find((el) => el.checked);
+  return checked ? checked.value : "";
+}
+function getChecked(form, name) {
+  const els = form.elements[name];
+  if (!els) return [];
+  const list = els.length ? Array.from(els) : [els];
+  return list.filter((el) => el.checked).map((el) => el.value);
+}
+
+</script>
