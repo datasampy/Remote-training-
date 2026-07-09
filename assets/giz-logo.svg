@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="GIZ logo">
+  <title>GIZ</title>
+  <!-- White field -->
+  <rect width="240" height="240" fill="#ffffff"/>
+  <!-- GIZ red wordmark "giz". GIZ corporate red ≈ #E4032E -->
+  <g fill="#E4032E">
+    <text x="50%" y="150"
+          text-anchor="middle"
+          font-family="Arial Rounded MT Bold, Arial, Helvetica, sans-serif"
+          font-weight="800"
+          font-size="120"
+          letter-spacing="-2">giz</text>
+    <!-- Distinctive slanted i-dot (parallelogram) over the 'i' -->
+    <polygon points="118,52 141,52 133,78 110,78"/>
+  </g>
+</svg>

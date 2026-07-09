@@ -87,16 +87,22 @@ const CONFIG = {
 **Quick test:** paste the `/exec` URL into a browser. You should see
 `{"ok":true,"service":"GIZ-ZME registration","ready":true}`.
 
-## Step 4 — Add the GIZ logo
+## Step 4 — The GIZ logo
 
-1. Put the logo image file at: **`assets/giz-logo.png`**
-   *(that exact path and name).*
-2. If the file is missing, the form shows a "GIZ logo goes here" placeholder
-   instead of a broken image, so the page still works while you source it.
-3. To use a different filename, update the `src` in `index.html`:
+A vector recreation of the GIZ wordmark already ships at
+**`assets/giz-logo.svg`** and is wired into the page, so the header shows a
+logo out of the box.
+
+To use the **official** GIZ asset instead (recommended for production /
+brand compliance):
+
+1. Put the official file at **`assets/giz-logo.png`**.
+2. Change the `src` in `index.html`:
    ```html
    <img class="brand__logo" src="assets/giz-logo.png" alt="GIZ logo" ...>
    ```
+3. If the referenced file is ever missing, the form shows a "GIZ logo goes
+   here" placeholder instead of a broken image, so the page still works.
 
 ## Step 5 — Configure the confirmation email (EmailJS — the default)
 
@@ -218,7 +224,7 @@ rejected** — nothing is saved and the bot sees a normal success screen.
 | EmailJS Public Key    | EmailJS ▸ Account     | `script.js` → `CONFIG.EMAILJS_PUBLIC_KEY`   |
 | EmailJS Service ID    | EmailJS ▸ Services    | `script.js` → `CONFIG.EMAILJS_SERVICE_ID`   |
 | EmailJS Template ID   | EmailJS ▸ Templates   | `script.js` → `CONFIG.EMAILJS_TEMPLATE_ID`  |
-| GIZ logo image        | You / GIZ brand assets| file at `assets/giz-logo.png`               |
+| GIZ logo image        | Ships as `assets/giz-logo.svg`; swap in official `assets/giz-logo.png` if desired | `index.html` `<img src>` |
 
 ## Customising the look
 
