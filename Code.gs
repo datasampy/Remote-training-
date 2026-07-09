@@ -80,9 +80,8 @@ function doPost(e) {
     });
     sheet.appendRow(row);
 
-    // ---- OPTION B: send the confirmation email from here instead of
-    // EmailJS. Uncomment the next line (and the function below). ----
-    // sendConfirmationEmail_(data);
+    // Send the confirmation email from Google (all-Google, no EmailJS).
+    sendConfirmationEmail_(data);
 
     return json_({ ok: true });
   } catch (err) {
@@ -111,7 +110,6 @@ function json_(obj) {
      3. Leave the EmailJS keys blank in script.js.
    MailApp sends from the Google account that owns this script.
    ================================================================ */
-/*
 function sendConfirmationEmail_(data) {
   if (!data.email) return;
 
@@ -153,4 +151,3 @@ function sendConfirmationEmail_(data) {
     name: 'Data-Lead Africa'
   });
 }
-*/
